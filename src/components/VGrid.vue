@@ -34,7 +34,7 @@
             <single-cell
                 :cell-value="cellValue ? cellValue.toString() : ''"
                 :is-header="row.rowType ? checkIsHeader(row.rowType.toString()) : false"
-                :is-header-leaf="checkIsHeaderLeaf(row, columnIndex)"
+                :is-header-leaf="checkIsHeaderLeaf(row, Number(columnIndex))"
             />
           </th>
         </tr>
