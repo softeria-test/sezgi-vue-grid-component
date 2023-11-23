@@ -10,7 +10,7 @@ export const sortTable = (rows: IRow[], colIndex: number, isOrderedAsc: boolean)
   const myRows = JSON.parse(JSON.stringify(rows))
 
   myRows.sort((firstRow: IRow, secondRow: IRow) => {
-    let returnValue = null
+    let returnValue;
 
     if (firstRow.rowType && secondRow.rowType && (checkIsHeader(firstRow.rowType.toString()) || checkIsHeader(secondRow.rowType.toString()))) {
       // Don't sort headers
