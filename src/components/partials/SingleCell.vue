@@ -1,8 +1,8 @@
 <template>
-  <div class="cell" :class="isHeaderLeaf && isHeader ? 'clickable' : ''">
+  <div class="cell" :class="isHeaderLeaf && isHeader ? 'clickable' : ''" @click="isHeaderLeaf && isHeader && $emit('sort:table')">
     <span class="cell-value">{{ text }}</span>
     <div v-if="isHeaderLeaf && isHeader">
-      <font-awesome-icon icon="fa fa-chevron-down" class="arrow-icon" ></font-awesome-icon>
+      <font-awesome-icon :icon="'fa ' + (isAscending ? 'fa-chevron-down' : 'fa-chevron-up')" class="arrow-icon" ></font-awesome-icon>
     </div>
   </div>
 </template>
@@ -17,6 +17,7 @@ export default Vue.extend({
     cellValue: String,
     isHeaderLeaf: Boolean,
     isHeader: Boolean,
+    isAscending: Boolean,
   },
   setup(props) {
     const text = ref("");
